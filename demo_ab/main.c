@@ -13,9 +13,10 @@ int main(int argc, char *argv[])
 	size_t size = 0;
 	ssize_t r_line = 0;
 	stack_t *stack = NULL;
-	unsigned int line_count = 0;
+	unsigned int line_count = 1;
 
 NOTUSED(stack);
+glob_buffer.line_buf = NULL;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -27,17 +28,19 @@ NOTUSED(stack);
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
+    glob_buffer.file = file;
 	while ((r_line = getline(&line, &size, file)) > 0)
 	{
-		line_count++;
+        glob_buffer.line_buf = line;
 		if (r_line > 0)
 		{
-            printf("%s\n", line);
+            run(line, file, &stack, line_count);
 		}
 		free(line);
         line = NULL;
+        line_count++;
 	}
 	fclose(file);
-    printf("%d\n", line_count);
+
 return (0);
 }

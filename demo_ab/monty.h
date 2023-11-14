@@ -38,4 +38,19 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+typedef struct
+{
+    char *args;
+    char *line_buf;
+    FILE *file;
+} line_args_t;
+line_args_t glob_buffer;
+
+int run(char *line, FILE *file, stack_t **stack, unsigned int line_number);
+void _push(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int line_number);
+void free_dlink(stack_t *head);
+void add_queue(stack_t **head, int val);
+void add_stack(stack_t **head, int val);
+int isDigit(char *str);
 #endif
