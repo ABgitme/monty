@@ -4,7 +4,7 @@ void _push(stack_t **stack, unsigned int line_number)
 {
     int n;
 
-        if (isDigit(glob_buffer.args) != 0 || glob_buffer.args == NULL)
+        if (isDigit(glob_buffer.args) == 0 || glob_buffer.args == NULL)
         {
             fprintf(stderr, "L%d: usage: push integer\n", line_number);
             fclose(glob_buffer.file);
