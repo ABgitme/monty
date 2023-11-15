@@ -8,7 +8,7 @@
 */
 int main(int argc, char *argv[])
 {
-	char *line;
+	char *line = NULL;
 	FILE *file;
 	size_t size = 0;
 	ssize_t r_line = 0;
@@ -40,6 +40,8 @@ glob_buffer.line_buf = NULL;
         line = NULL;
         line_count++;
 	}
+	free(line);
+	free_dlink(stack);
 	fclose(file);
 
 return (0);
