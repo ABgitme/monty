@@ -8,41 +8,37 @@
 */
 int main(int argc, char *argv[])
 {
-	char *line = NULL;
-	FILE *file;
+	globe_args.value = NULL;
+	globe_args.line = NULL;
+	globe_args.file = NULL;
+
 	size_t size = 0;
 	ssize_t r_line = 0;
 	stack_t *stack = NULL;
-	unsigned int line_count = 1;
+	unsigned int line_number = 0;
 
-	NOTUSED(stack);
-	glob_buffer.line_buf = NULL;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	file = fopen(argv[1], "r");
-	if (file == NULL)
+	globe_args.file = fopen(argv[1], "r");
+	if (globe_args.file == NULL || argv[1] == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	glob_buffer.file = file;
-	while ((r_line = getline(&line, &size, file)) > 0)
+	while ((r_line = getline(&globe_args.line, &size, globe_args.file)) > 0)
 	{
-		glob_buffer.line_buf = line;
+		line_number++;
 		if (r_line > 0)
 		{
-			run(line, file, &stack, line_count);
+			exec_line(globe_args.line, &stack, line_number, globe_args.file);
 		}
-		free(line);
-		line = NULL;
-		line_count++;
+		free(globe_args.line);
+		
 	}
-	free(line);
-	free_dlink(stack);
-	fclose(file);
-
+	free_stack(stack);
+	fclose(globe_args.file);
 	return (0);
 }
