@@ -49,6 +49,8 @@ line_args_t glob_buffer;
 int run(char *line, FILE *file, stack_t **stack, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
+void _pop(stack_t **stack, unsigned int line_number);
 void free_dlink(stack_t *head);
 void add_queue(stack_t **head, int val);
 void add_stack(stack_t **head, int val);

@@ -16,6 +16,8 @@ int run(char *line, FILE *file, stack_t **stack, unsigned int line_number)
     instruction_t opcd[] = {
         {"push", _push},
         {"pall", _pall},
+        {"pint", _pint},
+        {"pop", _pop},
         {NULL, NULL}};
 
     NOTUSED(file);
