@@ -20,11 +20,10 @@ int run(char *line, FILE *file, stack_t **stack, unsigned int line_number)
 	{NULL, NULL}};
 
 	NOTUSED(file);
-
-	cmd = strtok(line, " \a\n\t");
+	cmd = strtok(line, " \n\t");
 	if (cmd && cmd[0] == '#')
 		return (0);
-	glob_buffer.args = strtok(NULL, " \a\n\t");
+	glob_buffer.args = strtok(NULL, " \n\t");
 	while (opcd[i].opcode && cmd)
 	{
 		if (strcmp(opcd[i].opcode, cmd) == 0)
@@ -34,7 +33,7 @@ int run(char *line, FILE *file, stack_t **stack, unsigned int line_number)
 		}
 		i++;
 	}
-	if (opcd[i].opcode && cmd == NULL)
+	if (opcd[i].opcode == NULL && cmd)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd);
 		fclose(file);
