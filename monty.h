@@ -6,9 +6,9 @@
 #include <unistd.h>
 #include <string.h>
 #include <ctype.h>
-extern char *value;
 extern char *line;
 extern FILE *file;
+extern char *value;
 #define NOTUSED(x) (void)(x)
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

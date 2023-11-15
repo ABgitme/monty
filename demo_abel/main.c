@@ -6,9 +6,6 @@
 * @argv: monty file location
 * Return: 0 on success
 */
-char *line = NULL;
-FILE *file = NULL;
-char *value = NULL;
 int main(int argc, char *argv[])
 {
 	size_t size = 0;
@@ -22,7 +19,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(argv[1], "r");
-	if (file == NULL)
+	if (file == NULL || argv[1] == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);

@@ -20,6 +20,8 @@ int exec_line(char *line, stack_t **stack, unsigned int line_count, FILE *file)
 	unsigned int i;
 
 	op_code = strtok(line, " \n\t");
+		if (!op_code)
+			exit(EXIT_FAILURE);
 	value = strtok(NULL, " \n\t");
 	i = 0;
 	while (instructions[i].opcode && op_code)
