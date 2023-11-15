@@ -6,17 +6,16 @@
 * @argv: monty file location
 * Return: 0 on success
 */
+char *line = NULL;
+FILE *file = NULL;
+char *value = NULL;
 int main(int argc, char *argv[])
 {
-	char *line;
-	FILE *file;
 	size_t size = 0;
 	ssize_t r_line = 0;
 	stack_t *stack = NULL;
-	unsigned int line_count = 1;
+	unsigned int line_count = 0;
 
-NOTUSED(stack);
-glob_buffer.line_buf = NULL;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -28,19 +27,16 @@ glob_buffer.line_buf = NULL;
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-    glob_buffer.file = file;
 	while ((r_line = getline(&line, &size, file)) > 0)
 	{
-        glob_buffer.line_buf = line;
+		line_count++;
 		if (r_line > 0)
 		{
-            run(line, file, &stack, line_count);
+			exec_line(line, &stack, line_count, file);
 		}
 		free(line);
-        line = NULL;
-        line_count++;
+		line = NULL;
 	}
 	fclose(file);
-
-return (0);
+	return (0);
 }
