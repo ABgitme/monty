@@ -1,4 +1,5 @@
 #include "monty.h"
+#define UNUSED(x) (void)(X)
 /**
 *_pstr - print the stack's int based of ascii value of char
 *@stack: pointer to pointer of stack's head
@@ -7,6 +8,7 @@
 */
 void _pstr(stack_t **stack, unsigned int line_number)
 {
+	NOTUSED(line_number);
 	if (!stack || !(*stack))
 	{
 		putchar('\n');
