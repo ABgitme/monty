@@ -8,26 +8,29 @@
 */
 void _pstr(stack_t **stack, unsigned int line_number)
 {
+	stack_t *tmp;
+	char ch;
+
+	tmp = *stack;
 	NOTUSED(line_number);
-	if (!stack || !(*stack))
+	if (*stack)
 	{
-		putchar('\n');
+		while (tmp && (tmp->n != 0))
+		{
+			if (tmp->n >32 && tmp->n < 127)
+			{
+				ch = (char) tmp->n;
+				printf("%c", ch);
+			}
+			else
+				break;
+			tmp = tmp->next;
+		}
+		printf("\n");
 	}
 	else
 	{
-		while ((*stack)->next)
-		{
-			if ((*stack)->n < 'A' || (*stack)->n > 'z' || (*stack)->n == 0)
-			{
-				break;
-			}
-			else
-			{
-				putchar((*stack)->n);
-			}
-			*stack = (*stack)->next;
-		}
-		putchar('\n');
+		printf("\n");
 	}
 
 }
