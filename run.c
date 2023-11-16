@@ -27,6 +27,7 @@ int run(char *line, FILE *file, stack_t **stack, unsigned int line_number)
 	{"pchar", _pchar},
 	{"pstr", _pstr},
 	{"rotl", _rotl},
+	{"rotr", _rotr},
 	{NULL, NULL}};
 
 	NOTUSED(file);
