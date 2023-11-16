@@ -10,10 +10,6 @@ void _pstr(stack_t **stack, unsigned int line_number)
 	if (!stack || !(*stack))
 	{
 		putchar('\n');
-		fprintf(stderr, "L%d: can't pstr, stack empty\n", line_number);
-		free(glob_buffer.line_buf);
-		free_dlink(*stack);
-		exit(EXIT_FAILURE);
 	}
 	else
 	{
