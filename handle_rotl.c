@@ -13,7 +13,7 @@ void _rotl(stack_t **stack, unsigned int line_number)
 
     NOTUSED(line_number);
     tmp2 = tmp1 = *stack;
-    if (tmp1)
+    if (tmp1 && tmp1->next)
     {
         while (tmp2->next)
         {
@@ -24,4 +24,6 @@ void _rotl(stack_t **stack, unsigned int line_number)
         tmp2->next = tmp1;
         tmp2->next->next = NULL;
     }
+    else
+        return;
 }
