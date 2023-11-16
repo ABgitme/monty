@@ -28,5 +28,8 @@ void _push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(glob_buffer.args);
-	add_stack(stack, n);
+	if (glob_buffer.mode == 0)
+		add_stack(stack, n);
+	else if (glob_buffer.mode == 1)
+		add_queue(stack, n);
 }

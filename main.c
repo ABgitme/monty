@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
 
 	NOTUSED(stack);
 	glob_buffer.line_buf = NULL;
+	glob_buffer.mode = 0;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");

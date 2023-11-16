@@ -40,9 +40,10 @@ typedef struct instruction_s
 
 typedef struct
 {
-    char *args;
-    char *line_buf;
-    FILE *file;
+        char *args;
+        char *line_buf;
+        FILE *file;
+        int mode;
 } line_args_t;
 line_args_t glob_buffer;
 
@@ -66,4 +67,6 @@ void _pchar(stack_t **stack, unsigned int line_number);
 void _pstr(stack_t **stack, unsigned int line_number);
 void _rotl(stack_t **stack, unsigned int line_number);
 void _rotr(stack_t **stack, unsigned int line_number);
+void _stack(stack_t **stack, unsigned int line_number);
+void _queue(stack_t **stack, unsigned int line_number);
 #endif
