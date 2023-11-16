@@ -26,6 +26,7 @@ void add_queue(stack_t **head, int val)
 		if (tmp == NULL)
 		{
 			*head = new_node;
+			new_node->prev = NULL;
 		}
 		else
 		{
