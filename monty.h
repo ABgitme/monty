@@ -55,4 +55,5 @@ void free_dlink(stack_t *head);
 void add_queue(stack_t **head, int val);
 void add_stack(stack_t **head, int val);
 int isDigit(char *str);
+void _swap(stack_t **stack, unsigned int line_number);
 #endif
