@@ -7,6 +7,6 @@
 */
 void _nop(stack_t **stack, unsigned int line_number)
 {
-	NOTUSED (stack);
-	NOTUSED (line_number);
+	NOTUSED(stack);
+	NOTUSED(line_number);
 }

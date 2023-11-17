@@ -17,7 +17,7 @@ void _pstr(stack_t **stack, unsigned int line_number)
 	{
 		while (tmp && (tmp->n != 0))
 		{
-			if (tmp->n >32 && tmp->n < 127)
+			if (tmp->n > 32 && tmp->n < 127)
 			{
 				ch = (char) tmp->n;
 				printf("%c", ch);

@@ -13,24 +13,11 @@ int run(char *line, FILE *file, stack_t **stack, unsigned int line_number)
 	int i = 0;
 	char *cmd;
 	instruction_t opcd[] = {
-	{"push", _push},
-	{"pall", _pall},
-	{"pint", _pint},
-	{"pop", _pop},
-	{"swap", _swap},
-	{"add", _add},
-	{"nop", _nop},
-	{"sub", _sub},
-	{"div", _div},
-	{"mul", _mul},
-	{"mod", _mod},
-	{"pchar", _pchar},
-	{"pstr", _pstr},
-	{"rotl", _rotl},
-	{"rotr", _rotr},
-	{"stack", _stack},
-	{"queue", _queue},
-	{NULL, NULL}};
+	{"push", _push}, {"pall", _pall}, {"pint", _pint}, {"pop", _pop},
+	{"swap", _swap}, {"add", _add}, {"nop", _nop}, {"sub", _sub},
+	{"div", _div}, {"mul", _mul}, {"mod", _mod}, {"pchar", _pchar},
+	{"pstr", _pstr}, {"rotl", _rotl}, {"rotr", _rotr}, {"stack", _stack},
+	{"queue", _queue}, {NULL, NULL}};
 
 	NOTUSED(file);
 	cmd = strtok(line, " \n\t");
